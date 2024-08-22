@@ -67,12 +67,14 @@ class GoogleGeocodingApi {
     String? locationType,
     String? resultType,
     String? language,
+    bool fulfillOnZeroResults = false,
   }) async {
     final Map<String, dynamic> query = <String, dynamic>{
       'latlng': latlng,
       if (language != null) 'language': language,
       if (resultType != null) 'result_type': resultType,
       if (locationType != null) 'location_type': locationType,
+      'fulfill_on_zero_results': fulfillOnZeroResults
     };
 
     final Response<Map<String, dynamic>> response =
